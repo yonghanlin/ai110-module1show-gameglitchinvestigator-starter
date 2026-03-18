@@ -8,7 +8,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   This game is about guessing a secret number. After entering your guess, it can give you a hint telling you whether to go higher or lower to get closer to the correct number.
 
 - List at least two concrete bugs you noticed at the start  
-  (for example: "the secret number kept changing" or "the hints were backwards").
+  (for example: "the hints were backwards").
 
   (1) The hints were backwards. It says, "Go LOWER!", but the correct number is actually higher.  
   (2) When I click "Submit Guess," no hint is shown. I have to click twice to make the hint appear.  
@@ -41,9 +41,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 4. What did you learn about Streamlit and state?
 
-- In your own words, explain why the secret number kept changing in the original app.
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-- What change did you make that finally gave the game a stable secret number?
 
   I didn't experience the secret number changing in the original app, but I found three other bugs. First, the hints were reversed — it said "Go LOWER!" when the correct number was actually higher, which I fixed by correcting the comparison logic in check_guess. Second, clicking "Submit Guess" once showed no hint; it required two clicks, which I fixed by wrapping the input and buttons in st.form() so Streamlit only reruns when the form is submitted. Third, clicking "New Game" after winning didn't restart the game because st.session_state.status was still set to "won", so I reset it to "playing" along with clearing the history and calling st.rerun(). 
   
