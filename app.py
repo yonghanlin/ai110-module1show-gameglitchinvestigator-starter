@@ -118,6 +118,9 @@ with st.form("guess_form"):
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(1, 100)
+    #FIX: resetting the status and history to start a new game - suggested by Claude
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 
