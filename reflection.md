@@ -42,8 +42,6 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-
-  I didn't experience the secret number changing in the original app, but I found three other bugs. First, the hints were reversed — it said "Go LOWER!" when the correct number was actually higher, which I fixed by correcting the comparison logic in check_guess. Second, clicking "Submit Guess" once showed no hint; it required two clicks, which I fixed by wrapping the input and buttons in st.form() so Streamlit only reruns when the form is submitted. Third, clicking "New Game" after winning didn't restart the game because st.session_state.status was still set to "won", so I reset it to "playing" along with clearing the history and calling st.rerun(). 
   
   Streamlit "reruns" means every time a user interacts  with anything on the page, Streamlit re-executes the entire Python script from top to bottom. Session state persists across reruns for a single user's session — whatever you store there survives the next rerun.
   
